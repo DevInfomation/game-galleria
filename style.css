@@ -1,6 +1,10 @@
 * {
     padding: 0;
     margin: 0;
+
+    --primary-color: #1d2333;
+    --secondary-color: #006aff;
+    --secondary-hover-color: #005bdb;
 }
 
 body {
@@ -17,7 +21,7 @@ body {
 }
 
 #nav {
-    background-color: #1d2333;
+    background-color: var(--primary-color);
 }
 
 .full-bar {
@@ -35,7 +39,7 @@ body {
 
 .btn {
     padding: 0 3rem;
-    background-color: #006aff;
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     font-size: 15px;
@@ -45,7 +49,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #005bdb;
+    background-color: var(--secondary-hover-color);
 }
 
 .flex-column-direction {
@@ -55,37 +59,33 @@ body {
 
 .flex-column-direction p {
     color: white;
+    font-size: 14px;
 }
 
 .icons-center {
     align-self: center;
 }
 
-#purchases-list {
+.icon-inherit-properties {
     border: none;
-    background-color: #1d2333;
-    font-size: 25px;
-    color: white;
-}
-
-#favourites {
-    border: none;
-    background-color: #1d2333;
-    font-size: 25px;
-    color: white;
-}
-
-#cart {
-    border: none;
-    background-color: #1d2333;
+    background-color: var(--primary-color);
     font-size: 25px;
     color: white;
 }
 
 #search {
     width: 20rem;
-    padding: 0.7rem 0rem;
-    border: 2px solid #005bdb;
-    background-color: #1d2333;
+    padding: 0.8rem 0rem;
+    border: 2px solid var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
+}
+
+.search-btn {
+    padding: 0.8rem 2rem;
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    font-size: 15px;
+    text-align: center;
 }
