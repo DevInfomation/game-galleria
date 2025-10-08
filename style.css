@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.top-section {
+    text-align: center;
+    background-color: #161b28;
+    color: #cecece;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#nav {
+    background-color: #1d2333;
+}
+
+.full-bar {
+    width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem;
+}
+
+.full-bar img {
+    color: white;
+}
+
+.btn {
+    padding: 0 3rem;
+    background-color: #006aff;
+    color: white;
+    border: none;
+    font-size: 15px;
+    line-height: 2.8rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #005bdb;
+}
+
+.flex-column-direction {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-direction p {
+    color: white;
+}
+
+.icons-center {
+    align-self: center;
+}
+
+#purchases-list {
+    border: none;
+    background-color: #1d2333;
+    font-size: 25px;
+    color: white;
+}
+
+#favourites {
+    border: none;
+    background-color: #1d2333;
+    font-size: 25px;
+    color: white;
+}
+
+#cart {
+    border: none;
+    background-color: #1d2333;
+    font-size: 25px;
+    color: white;
+}
+
+#search {
+    width: 20rem;
+    padding: 0.7rem 0rem;
+    border: 2px solid #005bdb;
+    background-color: #1d2333;
+    color: white;
+}
