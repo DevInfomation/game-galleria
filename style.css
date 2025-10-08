@@ -66,6 +66,12 @@ body {
     align-self: center;
 }
 
+.flex-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+}
+
 .icon-inherit-properties {
     border: none;
     background-color: var(--primary-color);
