@@ -5,6 +5,8 @@
     --primary-color: #1d2333;
     --secondary-color: #006aff;
     --secondary-hover-color: #005bdb;
+    --search-btn-color: #17315b;
+    --search-hover-btn-color: #388BFF;
 }
 
 body {
@@ -89,9 +91,14 @@ body {
 
 .search-btn {
     padding: 0.8rem 2rem;
-    background-color: var(--secondary-color);
+    background-color: var(--search-btn-color);
     border: none;
     color: white;
     font-size: 15px;
     text-align: center;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: var(--search-hover-btn-color);
 }
