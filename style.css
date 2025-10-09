@@ -7,6 +7,7 @@
     --secondary-hover-color: #005bdb;
     --search-btn-color: #17315b;
     --search-hover-btn-color: #388BFF;
+    --navigation-list-colour: #202739;
 }
 
 body {
@@ -101,4 +102,40 @@ body {
 
 .search-btn:hover {
     background-color: var(--search-hover-btn-color);
+}
+
+#navigation-list {
+    background-color: var(--navigation-list-colour);
+    height: 5rem;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+
+.ul-menu {
+    white-space: nowrap;
+}
+
+.ul-menu li {
+    display: inline;
+    white-space: nowrap;
+    margin-right: 10px;
+    color: white;
+}
+
+.ul-menu a {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.nav-item:hover {
+    color: var(--secondary-color);
 }
