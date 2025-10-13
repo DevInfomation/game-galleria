@@ -11,7 +11,7 @@ function priceCreation() {
 }
 
 async function displayNewReleases() {
-  const { results } = await fetchAPIData('games');
+  const { results } = await fetchAPIData('games', 8, 20);
 
   results.forEach((game) => {
     const newReleases = document.createElement('div');
@@ -45,7 +45,7 @@ async function displayNewReleases() {
 }
 
 async function displayTopSellers() {
-  const { results } = await fetchAPIData('games');
+  const { results } = await fetchAPIData('games', 8, 1);
 
   results.forEach((game) => {
     const topSellers = document.createElement('div');
@@ -77,12 +77,12 @@ async function displayTopSellers() {
   });
 }
 
-async function fetchAPIData(endpoint) {
+async function fetchAPIData(endpoint, pageSize, page) {
   const API_KEY = global.api.apiKey;
   const API_URL = global.api.apiUrl;
 
   const response = await fetch(
-    `${API_URL}api/${endpoint}?key=${API_KEY}&page_size=8`
+    `${API_URL}api/${endpoint}?key=${API_KEY}&page_size=${pageSize}&page=${page}`
   );
 
   const data = response.json();
