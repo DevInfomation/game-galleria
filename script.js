@@ -7,7 +7,7 @@ const global = {
 };
 
 function priceCreation() {
-  return Math.floor(Math.random() * 100);
+  return Math.floor(Math.random(6) * 100);
 }
 
 async function displayNewReleases() {
@@ -41,7 +41,6 @@ async function displayNewReleases() {
 
     document.querySelector('.another-one').appendChild(newReleases);
   });
-
 }
 
 async function displayTopSellers() {
@@ -77,6 +76,24 @@ async function displayTopSellers() {
   });
 }
 
+async function displayPublishers() {
+  const { results } = await fetchAPIData('publishers', 4, 1);
+
+  results.forEach(publisher => {
+    const publisherDiv = document.createElement('div');
+
+    publisherDiv.innerHTML = `
+      <div class="content-publisher-container">
+        <a href="" class="content-publisher">
+          <img src="${publisher.image_background}" class="catalog-item--publisher" alt="${publisher.name}">
+        </a>
+      </div>
+    `;
+
+    document.querySelector('.content-publishers-container').appendChild(publisherDiv);
+  });
+}
+
 async function fetchAPIData(endpoint, pageSize, page) {
   const API_KEY = global.api.apiKey;
   const API_URL = global.api.apiUrl;
@@ -96,6 +113,7 @@ function init() {
     case '/index.html':
       displayTopSellers();
       displayNewReleases();
+      displayPublishers();
       break;
     default:
       console.log('Please enter a proper function');
