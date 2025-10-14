@@ -10,6 +10,7 @@
     --navigation-list-colour: #202739;
     --product-description-color: #232a3e;
     --product-view-more-color: #b6bed5; 
+    --footer-list-text-color: #b9c6e7;
 }
 
 body {
@@ -17,11 +18,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-p {
-    color: white;
-}
-
-h2 {
+p, h2, img, small {
     color: white;
 }
 
@@ -174,6 +171,7 @@ h2 {
 
 #main {
     background-color: #171b27;
+    padding-bottom: 5rem;
 }
 
 .container-margin {
@@ -221,4 +219,94 @@ h2 {
 .catalog-footer {
     text-align: center;
     margin-top: 3rem;
+}
+
+.content-publishers-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.content-publisher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: transparent;
+}
+
+.catalog-item--publisher {
+    height: 181px;
+    width: 242px;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--product-description-color);
+}
+
+#footer {
+    background-color: var(--primary-color);
+}
+
+.row {
+    display: flex;
+    padding-top: 5rem;
+}
+
+.column:nth-child(1) {
+    width: 408px;
+}
+
+.column:nth-child(2) {
+    width: 14.23%;
+}
+
+.column:nth-child(3) {
+    width: 24.23%;
+}
+
+.column:nth-child(4) {
+    width: 29.07%;
+    text-align: left;
+}
+
+.footer-menu-list {
+    list-style: none;
+}
+
+.footer-menu--item {
+    color: white;
+}
+
+.footer-menu--item {
+    margin-bottom: 0.8rem; 
+    color: white;
+}
+
+.footer-menu--item a {
+    color: var(--footer-list-text-color);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.footer-title-social {
+    margin-bottom: 0.8rem;
+}
+
+.footer-social-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    margin: 0 0 0 -2.8rem;
+}
+
+.footer-social--item {
+    font-size: 35px;
+}
+
+.footer-subscribe--description {
+    font-size: 14px;
+    color: var(--product-view-more-color);
 }
