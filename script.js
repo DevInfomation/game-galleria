@@ -13,13 +13,13 @@ function priceCreation() {
 async function displayNewReleases() {
   const { results } = await fetchAPIData('games', 8, 20);
 
-  results.forEach((game) => {
+  results.forEach(game => {
     const newReleases = document.createElement('div');
 
     newReleases.innerHTML = `
             <div class="catalog-item-container">
                 <div class="product-item--image">
-                  <a href="#"
+                  <a href="product-game.html?id=${game.id}"
                     ><img
                       src="${game.background_image}"
                       alt="${game.name}"
@@ -46,13 +46,13 @@ async function displayNewReleases() {
 async function displayTopSellers() {
   const { results } = await fetchAPIData('games', 8, 1);
 
-  results.forEach((game) => {
+  results.forEach(game => {
     const topSellers = document.createElement('div');
 
     topSellers.innerHTML = `
             <div class="catalog-item-container">
                 <div class="product-item--image">
-                  <a href="#"
+                  <a href="product-game.html?id=${game.id}"
                     ><img
                       src="${game.background_image}"
                       alt="${game.name}"
@@ -90,8 +90,28 @@ async function displayPublishers() {
       </div>
     `;
 
-    document.querySelector('.content-publishers-container').appendChild(publisherDiv);
+    document
+      .querySelector('.content-publishers-container')
+      .appendChild(publisherDiv);
   });
+}
+
+async function displayGameDetail() {
+  const gameId = window.location.search.split('=')[1];
+  const results = await fetchGameDetailAPI(`games/${gameId}`);
+
+  console.log(results);
+}
+
+async function fetchGameDetailAPI(endpoint) {
+  const API_KEY = global.api.apiKey;
+  const API_URL = global.api.apiUrl;
+
+  const response = await fetch(`${API_URL}api/${endpoint}?key=${API_KEY}`);
+
+  const data = response.json();
+
+  return data;
 }
 
 async function fetchAPIData(endpoint, pageSize, page) {
@@ -114,6 +134,9 @@ function init() {
       displayTopSellers();
       displayNewReleases();
       displayPublishers();
+      break;
+    case '/product-game.html':
+      // displayGameDetail();
       break;
     default:
       console.log('Please enter a proper function');
