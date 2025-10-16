@@ -98,7 +98,8 @@ async function displayPublishers() {
 
 async function displayGameDetail() {
   const gameId = window.location.search.split('=')[1];
-  const results = await fetchGameDetailAPI(`games/${gameId}`);
+  const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
+  const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
 
   console.log(results);
 }
