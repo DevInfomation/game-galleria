@@ -19,8 +19,15 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-p, h2, h1, img, small, label {
+p, h1, h2, h4, img, small, label {
     color: white;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333e5b;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .top-section {
@@ -372,7 +379,8 @@ p, h2, h1, img, small, label {
 }
 
 .content-img {
-    width: 880px;
+    border: 2px solid #333E5B;
+    width: 876px;
     height: 497px;
 }
 
@@ -420,5 +428,26 @@ p, h2, h1, img, small, label {
 
 .product-description {
     margin-top: 2rem;
+    padding: 2rem;
     background-color: var(--navigation-list-colour);
+}
+
+.product-description-text {
+    margin-top: 1.5rem;
+    font-size: 14px;
+    color: var(--product-view-more-color);
+}
+
+.requirements {
+    color: var(--product-view-more-color);
+    width: 722px;
+    margin: 10px auto;
+}
+
+.column-content {
+    display: flex;
+}
+
+.row-column {
+    display: flex;
 }
