@@ -155,7 +155,6 @@ async function displayGameDetail() {
                   <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[4]}</li> 
                   <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[5]}</li> 
                   <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[6]}</li> 
-                  <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[7]}</li> 
                 </ul> 
               `
               :
@@ -176,7 +175,6 @@ async function displayGameDetail() {
                   <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[4]}</li>
                   <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[5]}</li>
                   <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[6]}</li>
-                  <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[7]}</li>
                 </ul>
               ` 
               :
