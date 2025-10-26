@@ -455,3 +455,14 @@ hr {
 .row-column {
     display: flex;
 }
+
+.side-content-block {
+    padding: 1rem;
+    background-color: var(--product-description-color);
+    margin-bottom: 2rem;
+}
+
+.catalog-item--price {
+    position: relative;
+    margin-top: 1rem;
+}
