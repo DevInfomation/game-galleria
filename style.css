@@ -536,3 +536,16 @@ hr {
     padding: 2rem;
     background-color: var(--navigation-list-colour);
 }
+
+.sidebar-product--info-list {
+   list-style: none; 
+}
+
+.sidebar-product--info-list li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--product-view-more-color);
+    font-size: 14px;
+}
