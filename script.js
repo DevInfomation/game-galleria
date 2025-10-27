@@ -98,16 +98,44 @@ async function displayPublishers() {
 
 async function displayGameDetail() {
   const gameId = window.location.search.split('=')[1];
+  const gameTitle = document.getElementById('title');
   const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
   const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
 
-  const div = document.createElement('div');
+  const containerImages = document.createElement('div');
+  containerImages.classList.add('content-sub-images');
+  let gameTitleName = document.createElement('h1');
 
-  div.innerHTML = `
-      
+  gameTitleName = gameDetails.name;
+  gameTitle.append(gameTitleName);
+
+  containerImages.innerHTML = `
+     <button class="arrow-btn">
+        <i class="fa-solid fa-less-than"></i>
+      </button>
+      <ul class="preview-container">
+        <li>
+          <img src="${results[0].image}" alt="${gameTitleName}" class="content-sub-image-preview">
+        </li>
+        <li>
+          <img src="${results[1].image}" alt="${gameTitleName}" class="content-sub-image-preview">
+        </li>
+        <li>
+          <img src="${results[2].image}" alt="${gameTitleName}" class="content-sub-image-preview">
+        </li>
+        <li>
+          <img src="${results[3].image}" alt="${gameTitleName}" class="content-sub-image-preview">
+        </li>
+        <li>
+          <img src="${results[3].image}" alt="${gameTitleName}" class="content-sub-image-preview">
+        </li>
+      </ul>
+      <button class="arrow-btn">
+        <i class="fa-solid fa-greater-than"></i>
+      </button>
   `;
 
-  document.getElementById('content-container-start').appendChild(div);
+  document.querySelector('.content-sub-images').appendChild(containerImages);
 }
 
 async function fetchGameDetailAPI(endpoint) {
