@@ -460,7 +460,7 @@ hr {
 .side-content-block {
     padding: 1rem;
     background-color: var(--product-description-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 .catalog-item--price {
@@ -507,6 +507,14 @@ hr {
     border-bottom: 0.15rem solid #cecece;
     border-right: none;
     border-left: none;
+}
+
+.add-to-favourites:hover {
+    border-top: 0.15rem solid #dc2f43;
+    border-bottom: 0.15rem solid #dc2f43;
+    background-color: #c64b4b;
+    color: white;
+    cursor: pointer;
 }
 
 .heart {
