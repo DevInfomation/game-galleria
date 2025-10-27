@@ -535,6 +535,7 @@ hr {
 .sidebar-product-info {
     padding: 2rem;
     background-color: var(--navigation-list-colour);
+    margin-bottom: 1rem;
 }
 
 .sidebar-product--info-list {
