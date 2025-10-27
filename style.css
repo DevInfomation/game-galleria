@@ -424,6 +424,12 @@ hr {
 .content-sub-image-preview {
     height: 80px;
     border: 2px solid #333E5B;
+    opacity: 0.5;
+}
+
+.content-sub-image-preview:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
 .preview-container {
