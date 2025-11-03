@@ -98,16 +98,36 @@ async function displayPublishers() {
 
 async function displayGameDetail() {
   const gameId = window.location.search.split('=')[1];
+  const gameTitle = document.getElementById('title');
   const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
   const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
 
-  const div = document.createElement('div');
+  const productMainImage = document.querySelector('.product-slider-screen');
+  const productSideImage = document.querySelector('.catalog-item--image');
+  
+  let gameTitleName = document.createElement('h1');
 
-  div.innerHTML = `
-      
-  `;
+  gameTitleName = gameDetails.name;
+  gameTitle.append(gameTitleName);
+  
+  productMainImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" class="content-img">` 
+  productSideImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" width="360" height="206">` 
 
-  document.getElementById('content-container-start').appendChild(div);
+
+  results.slice(0, 5).forEach(screenshot => {
+    const ul = document.getElementById('container-images-ul');
+    const li = document.createElement('li');
+
+    li.innerHTML = `
+      <img src="${screenshot.image}"
+      alt="${screenshot.name}"
+      class="content-sub-image-preview" />
+    `;
+
+    ul.appendChild(li);
+
+  // document.querySelector('.preview-container').appendChild(results);
+  // document.querySelector('.content-sub-images').appendChild(results);
 }
 
 async function fetchGameDetailAPI(endpoint) {
