@@ -104,6 +104,7 @@ async function displayGameDetail() {
 
   const productMainImage = document.querySelector('.product-slider-screen');
   const productSideImage = document.querySelector('.catalog-item--image');
+  const productDescrption = document.querySelector('.product-description');
   
   let gameTitleName = document.createElement('h1');
 
@@ -121,13 +122,17 @@ async function displayGameDetail() {
     li.innerHTML = `
       <img src="${screenshot.image}"
       alt="${screenshot.name}"
-      class="content-sub-image-preview" />
+      class="content-sub-image-preview">
     `;
 
     ul.appendChild(li);
   });
-  // document.querySelector('.preview-container').appendChild(results);
-  // document.querySelector('.content-sub-images').appendChild(results);
+
+  let productionText = document.createElement('p');
+
+  productionText.textContent = `${gameDetails.description_raw}`;
+  productionText.classList.add('product-description-text');
+  productDescrption.append(productionText);
 }
 
 async function fetchGameDetailAPI(endpoint) {
