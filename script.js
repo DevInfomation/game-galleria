@@ -125,7 +125,7 @@ async function displayGameDetail() {
     `;
 
     ul.appendChild(li);
-
+  });
   // document.querySelector('.preview-container').appendChild(results);
   // document.querySelector('.content-sub-images').appendChild(results);
 }
