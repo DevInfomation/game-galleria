@@ -102,40 +102,32 @@ async function displayGameDetail() {
   const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
   const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
 
-  const containerImages = document.createElement('div');
-  containerImages.classList.add('content-sub-images');
+  const productMainImage = document.querySelector('.product-slider-screen');
+  const productSideImage = document.querySelector('.catalog-item--image');
+  
   let gameTitleName = document.createElement('h1');
 
   gameTitleName = gameDetails.name;
   gameTitle.append(gameTitleName);
+  
+  productMainImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" class="content-img">` 
+  productSideImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" width="360" height="206">` 
 
-  containerImages.innerHTML = `
-     <button class="arrow-btn">
-        <i class="fa-solid fa-less-than"></i>
-      </button>
-      <ul class="preview-container">
-        <li>
-          <img src="${results[0].image}" alt="${gameTitleName}" class="content-sub-image-preview">
-        </li>
-        <li>
-          <img src="${results[1].image}" alt="${gameTitleName}" class="content-sub-image-preview">
-        </li>
-        <li>
-          <img src="${results[2].image}" alt="${gameTitleName}" class="content-sub-image-preview">
-        </li>
-        <li>
-          <img src="${results[3].image}" alt="${gameTitleName}" class="content-sub-image-preview">
-        </li>
-        <li>
-          <img src="${results[3].image}" alt="${gameTitleName}" class="content-sub-image-preview">
-        </li>
-      </ul>
-      <button class="arrow-btn">
-        <i class="fa-solid fa-greater-than"></i>
-      </button>
-  `;
 
-  document.querySelector('.content-sub-images').appendChild(containerImages);
+  results.slice(0, 5).forEach(screenshot => {
+    const ul = document.getElementById('container-images-ul');
+    const li = document.createElement('li');
+
+    li.innerHTML = `
+      <img src="${screenshot.image}"
+      alt="${screenshot.name}"
+      class="content-sub-image-preview" />
+    `;
+
+    ul.appendChild(li);
+
+  // document.querySelector('.preview-container').appendChild(results);
+  // document.querySelector('.content-sub-images').appendChild(results);
 }
 
 async function fetchGameDetailAPI(endpoint) {
