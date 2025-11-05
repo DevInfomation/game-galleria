@@ -136,6 +136,9 @@ async function displayGameDetail() {
   productionText.classList.add('product-description-text');
   productDescrption.append(productionText);
 
+  const newDate = new Date(gameDetails.released);
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',];
+
   let li = document.createElement('li');
 
   gameDetailBox.innerHTML = `
@@ -148,23 +151,22 @@ async function displayGameDetail() {
     <li>
       Release Date
       <div class="value">
-        <a href="#">${gameDetails.released}</a>
+        <a href="#">${newDate.getDay()}/${months[newDate.getMonth()]}/${newDate.getFullYear()}</a>
       </div>
     </li>
     <li>
       Publisher
       <div class="value">
-        <a href="#">Rockstar Games</a>
+        <a href="#">${gameDetails.publishers[0].name}</a>
       </div>
     </li>
     <li>
       Game Developer
       <div class="value">
-        <a href="#">Rockstar Games</a>
+        <a href="#">${gameDetails.developers[0].name}</a>
       </div>
     </li>
   `;
-
 }
 
 async function fetchGameDetailAPI(endpoint) {
