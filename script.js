@@ -86,7 +86,7 @@ async function displayPublishers() {
 
     publisherDiv.innerHTML = `
       <div class="content-publisher-container">
-        <a href="" class="content-publisher">
+        <a href="#" class="content-publisher">
           <img src="${publisher.image_background}" class="catalog-item--publisher" alt="${publisher.name}">
         </a>
       </div>
