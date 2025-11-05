@@ -1,7 +1,9 @@
+import { API_KEY } from './config.js';
+
 const global = {
   currentPage: window.location.pathname,
   api: {
-    apiKey: '1810efb422424c25b19f69fbebae88a9',
+    apiKey: API_KEY,
     apiUrl: 'https://api.rawg.io/',
   },
 };
@@ -105,15 +107,14 @@ async function displayGameDetail() {
   const productMainImage = document.querySelector('.product-slider-screen');
   const productSideImage = document.querySelector('.catalog-item--image');
   const productDescrption = document.querySelector('.product-description');
-  
+
   let gameTitleName = document.createElement('h1');
 
   gameTitleName = gameDetails.name;
   gameTitle.append(gameTitleName);
-  
-  productMainImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" class="content-img">` 
-  productSideImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" width="360" height="206">` 
 
+  productMainImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" class="content-img">`;
+  productSideImage.innerHTML = `<img src="${gameDetails.background_image}" alt="${gameDetails.name}" width="360" height="206">`;
 
   results.slice(0, 5).forEach(screenshot => {
     const ul = document.getElementById('container-images-ul');
