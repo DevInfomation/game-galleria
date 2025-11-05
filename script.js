@@ -101,6 +101,7 @@ async function displayPublishers() {
 async function displayGameDetail() {
   const gameId = window.location.search.split('=')[1];
   const gameTitle = document.getElementById('title');
+  const gameDetailBox = document.getElementById('game-detail-box');
   const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
   const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
 
@@ -134,6 +135,36 @@ async function displayGameDetail() {
   productionText.textContent = `${gameDetails.description_raw}`;
   productionText.classList.add('product-description-text');
   productDescrption.append(productionText);
+
+  let li = document.createElement('li');
+
+  gameDetailBox.innerHTML = `
+    <li>
+      Genre
+      <div class="value">
+        <a href="#">${gameDetails.genres.map(genre => ` ${genre.name}`)}</a>
+      </div>
+    </li>
+    <li>
+      Release Date
+      <div class="value">
+        <a href="#">${gameDetails.released}</a>
+      </div>
+    </li>
+    <li>
+      Publisher
+      <div class="value">
+        <a href="#">Rockstar Games</a>
+      </div>
+    </li>
+    <li>
+      Game Developer
+      <div class="value">
+        <a href="#">Rockstar Games</a>
+      </div>
+    </li>
+  `;
+
 }
 
 async function fetchGameDetailAPI(endpoint) {
