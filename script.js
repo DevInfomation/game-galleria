@@ -139,8 +139,6 @@ async function displayGameDetail() {
   const newDate = new Date(gameDetails.released);
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',];
 
-  let li = document.createElement('li');
-
   gameDetailBox.innerHTML = `
     <li>
       Genre
