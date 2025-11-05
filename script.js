@@ -168,7 +168,7 @@ async function displayGameDetail() {
   `;
 
   systemRequirements.innerHTML = `
-    ${gameDetails.platforms[0].platform.name === 'PC' ? `
+    ${gameDetails.platforms.filter(platform => platform.platform.name === 'PC') ? `
         <h4>System Requirements for PC</h4>
         <hr>
         <p>Minimum:</p>
