@@ -102,6 +102,7 @@ async function displayGameDetail() {
   const gameId = window.location.search.split('=')[1];
   const gameTitle = document.getElementById('title');
   const gameDetailBox = document.getElementById('game-detail-box');
+  const systemRequirements = document.getElementById('system-requirements');
   const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
   const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
 
@@ -165,6 +166,37 @@ async function displayGameDetail() {
       </div>
     </li>
   `;
+
+  systemRequirements.innerHTML = `
+    ${gameDetails.platforms[0].platform.name === 'PC' ? `
+        <h4>System Requirements for PC</h4>
+        <hr>
+        <p>Minimum:</p>
+        <ul class="requirements" id="minimum-requirements">
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[1]}</li> 
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[2]}</li> 
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[3]}</li> 
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[4]}</li> 
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[5]}</li> 
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[6]}</li> 
+          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[7]}</li> 
+        </ul> 
+        <p>Recommended:</p>
+        <ul class="requirements" id="recommended-requirements">
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[1]}</li>
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[2]}</li>
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[3]}</li>
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[4]}</li>
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[5]}</li>
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[6]}</li>
+          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[7]}</li>
+        </ul>
+      `
+      :
+      `<h4>There are no system requirements</h4>`
+    }
+  `;
+
 }
 
 async function fetchGameDetailAPI(endpoint) {
