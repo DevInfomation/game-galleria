@@ -173,23 +173,11 @@ async function displayGameDetail() {
         <hr>
         <p>Minimum:</p>
         <ul class="requirements" id="minimum-requirements">
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[1]}</li> 
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[2]}</li> 
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[3]}</li> 
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[4]}</li> 
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[5]}</li> 
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[6]}</li> 
-          <li>${gameDetails.platforms[0].requirements.minimum.split('\n')[7]}</li> 
+          <li>${gameDetails.platforms.filter(platform => platform.platform.name === 'PC').map(requirement => requirement.requirements.minimum.split(','))}</li> 
         </ul> 
         <p>Recommended:</p>
         <ul class="requirements" id="recommended-requirements">
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[1]}</li>
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[2]}</li>
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[3]}</li>
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[4]}</li>
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[5]}</li>
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[6]}</li>
-          <li>${gameDetails.platforms[0].requirements.recommended.split('\n')[7]}</li>
+          <li>${gameDetails.platforms.filter(platform => platform.platform.name === 'PC').map(requirement => requirement.requirements.recommended.split(','))}</li>
         </ul>
       `
       :
