@@ -550,3 +550,7 @@ hr {
     color: var(--product-view-more-color);
     font-size: 14px;
 }
+
+.value a {
+    color: var(--footer-social-item-color);
+}
