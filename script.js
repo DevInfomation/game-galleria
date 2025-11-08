@@ -102,6 +102,8 @@ async function displayGameDetail() {
   const gameId = window.location.search.split('=')[1];
   const gameTitle = document.getElementById('title');
   const gameDetailBox = document.getElementById('game-detail-box');
+  const minimumRequirementsUl = document.getElementById('minimum-requirements');
+  const recommendedRequirementsUl = document.getElementById('recommended-requirements');
   const systemRequirements = document.getElementById('system-requirements');
   const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
   const { results } = await fetchGameDetailAPI(`games/${gameId}/screenshots`);
@@ -167,23 +169,24 @@ async function displayGameDetail() {
     </li>
   `;
 
-  systemRequirements.innerHTML = `
-    ${gameDetails.platforms.map(platform => platform.platform.name === 'PC' && Object.keys(platform.requirements).length > 0) ? `
-        <h4>System Requirements for PC</h4>
-        <hr>
-        <p>Minimum:</p>
-        <ul class="requirements" id="minimum-requirements">
-          ${gameDetails.platforms.map(requirements => `<li>${requirements.requirements.minimum}</li>`).join('')}
-        </ul> 
-        <p>Recommended:</p>
-        <ul class="requirements" id="recommended-requirements">
-          ${gameDetails.platforms.filter(platform => platform.platform.name === 'PC').map(requirment => `<li>${requirment.requirements.recommended}</li>`)}
-        </ul>
-      `
-      :
-      `<h4>There are no system requirements</h4>`
-    }
-  `;
+  let minimumLi = document.createElement('li');
+  let recommendedLi = document.createElement('li');
+
+  if (gameDetails.platforms[0].requirements.minimum.length > 0) {
+    minimumLi.textContent = gameDetails.platforms[0].requirements.minimum.split(',');
+
+    minimumRequirementsUl.append(minimumLi);
+  } else {
+    minimumLi.textContent = 'No requirements were found';
+  }
+
+  if (gameDetails.platforms[0].requirements.recommended.length > 0) {
+    recommendedLi.textContent = gameDetails.platforms[0].requirements.recommended.split(',');
+
+    recommendedRequirementsUl.append(recommendedLi);
+  } else {
+    recommendedLi.textContent = 'No requirements were found';
+  }
 
 }
 
