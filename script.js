@@ -178,6 +178,7 @@ async function displayGameDetail() {
     minimumRequirementsUl.append(minimumLi);
   } else {
     minimumLi.textContent = 'No requirements were found';
+
   }
 
   if (gameDetails.platforms[0].requirements.recommended.length > 0) {
@@ -187,7 +188,17 @@ async function displayGameDetail() {
   } else {
     recommendedLi.textContent = 'No requirements were found';
   }
+}
 
+async function displayGameRanking() {
+  const gameId = window.location.search.split('=')[1];
+  const gameDetails = await fetchGameDetailAPI(`games/${gameId}`);
+  const productInfo = document.getElementById('product-info');
+  const rating = document.getElementById('rating');
+  const ratingInfo = document.querySelector('.rating-info');
+
+  rating.textContent = `${Math.floor(gameDetails.rating)}/5 Rating`;
+  ratingInfo.textContent = `based on ${gameDetails.metacritic === null ? `${gameDetails.rating}` : `${gameDetails.metacritic}`} rating`; 
 }
 
 async function fetchGameDetailAPI(endpoint) {
@@ -224,6 +235,7 @@ function init() {
       break;
     case '/product-game.html':
       displayGameDetail();
+      displayGameRanking();
       break;
     default:
       console.log('Please enter a proper function');

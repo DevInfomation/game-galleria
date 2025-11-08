@@ -554,3 +554,14 @@ hr {
 .value a {
     color: var(--footer-social-item-color);
 }
+
+.sidebar-product--info {
+    padding: 20px;
+    background-color: #333e5b33;
+    border: 1px solid #333E5B;
+}
+
+.rating-info {
+    font-size: 15px;
+    color: var(--product-view-more-color);
+}
