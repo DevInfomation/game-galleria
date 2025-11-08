@@ -1,10 +1,10 @@
-import { API_KEY } from './config.js';
+import { API_KEY, API_URL } from './config.js';
 
 const global = {
   currentPage: window.location.pathname,
   api: {
     apiKey: API_KEY,
-    apiUrl: 'https://api.rawg.io/',
+    apiUrl: API_URL,
   },
 };
 
@@ -168,16 +168,16 @@ async function displayGameDetail() {
   `;
 
   systemRequirements.innerHTML = `
-    ${gameDetails.platforms.filter(platform => platform.platform.name === 'PC') ? `
+    ${gameDetails.platforms.map(platform => platform.platform.name === 'PC' && Object.keys(platform.requirements).length > 0) ? `
         <h4>System Requirements for PC</h4>
         <hr>
         <p>Minimum:</p>
         <ul class="requirements" id="minimum-requirements">
-          <li>${gameDetails.platforms.filter(platform => platform.platform.name === 'PC').map(requirement => requirement.requirements.minimum.split(','))}</li> 
+          ${gameDetails.platforms.map(requirements => `<li>${requirements.requirements.minimum}</li>`).join('')}
         </ul> 
         <p>Recommended:</p>
         <ul class="requirements" id="recommended-requirements">
-          <li>${gameDetails.platforms.filter(platform => platform.platform.name === 'PC').map(requirement => requirement.requirements.recommended.split(','))}</li>
+          ${gameDetails.platforms.filter(platform => platform.platform.name === 'PC').map(requirment => `<li>${requirment.requirements.recommended}</li>`)}
         </ul>
       `
       :
