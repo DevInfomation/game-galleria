@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="#" />
     <script
       src="https://kit.fontawesome.com/f7e1fa5e2e.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <title>Games</title>
-</head>
-<body>
-  <nav id="nav">
-    <section class="top-section">
-      <p>Gamers Galleria - Buy and download games now!</p>
-    </section>
-    <div class="full-bar">
-      <div>
-        <a href="/"><img src="#" alt="Gamers Galleria Logo" /></a>
+  </head>
+  <body>
+    <nav id="nav">
+      <section class="top-section">
+        <p>Gamers Galleria - Buy and download games now!</p>
+      </section>
+      <div class="full-bar">
+        <div>
+          <a href="/"><img src="#" alt="Gamers Galleria Logo" /></a>
+        </div>
+        <div style="display: flex">
+          <input type="search" id="search" class="search-input" />
+          <button class="search-btn" type="submit">SEARCH</button>
+        </div>
+        <!-- Buttons don't work at the minute -->
+        <div class="flex-icons">
+          <div class="flex-column-direction">
+            <button
+              id="purchases-list"
+              class="icons-center icon-inherit-properties">
+              <i class="fa-solid fa-list purchases"></i>
+            </button>
+            <p>My purchases</p>
+          </div>
+          <div class="flex-column-direction">
+            <button
+              id="favourites"
+              class="icons-center icon-inherit-properties">
+              <i class="fa-regular fa-heart favourite"></i>
+            </button>
+            <p>Favourties</p>
+          </div>
+          <div class="flex-column-direction">
+            <button id="cart" class="icons-center icon-inherit-properties">
+              <i class="fa-solid fa-cart-shopping cart"></i>
+            </button>
+            <p>Cart</p>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn" id="sign-in">Sign in</button>
+        </div>
       </div>
-      <div style="display: flex">
-        <input type="search" id="search" class="search-input" />
-        <button class="search-btn" type="submit">SEARCH</button>
-      </div>
-      <!-- Buttons don't work at the minute -->
-      <div class="flex-icons">
-        <div class="flex-column-direction">
-          <button
-            id="purchases-list"
-            class="icons-center icon-inherit-properties"
+    </nav>
+    <nav id="navigation-list">
+      <div class="menu-items">
+        <ul class="ul-menu">
+          <a href="#" class="nav-link"><li class="nav-item">Games</li></a>
+          <a href="#" class="nav-link"><li class="nav-item">Top Sellers</li></a>
+          <a href="#" class="nav-link"
+            ><li class="nav-item">Currently on Sale</li></a
           >
-            <i class="fa-solid fa-list purchases"></i>
-          </button>
-          <p>My purchases</p>
-        </div>
-        <div class="flex-column-direction">
-          <button
-            id="favourites"
-            class="icons-center icon-inherit-properties"
+          <a href="#" class="nav-link"
+            ><li class="nav-item">Newest releases</li></a
           >
-            <i class="fa-regular fa-heart favourite"></i>
-          </button>
-          <p>Favourties</p>
-        </div>
-        <div class="flex-column-direction">
-          <button id="cart" class="icons-center icon-inherit-properties">
-            <i class="fa-solid fa-cart-shopping cart"></i>
-          </button>
-          <p>Cart</p>
-        </div>
-      </div>
-      <div>
-        <button type="submit" class="btn" id="sign-in">Sign in</button>
-      </div>
-    </div>
-  </nav>
-  <nav id="navigation-list">
-    <div class="menu-items">
-      <ul class="ul-menu">
-        <a href="#" class="nav-link"><li class="nav-item">Games</li></a>
-        <a href="#" class="nav-link"><li class="nav-item">Top Sellers</li></a>
-        <a href="#" class="nav-link"
-          ><li class="nav-item">Currently on Sale</li></a
-        >
-        <a href="#" class="nav-link"
-          ><li class="nav-item">Newest releases</li></a
-        >
-        <a href="#" class="nav-link"><li class="nav-item">Coming Soon</li></a>
-        <a href="#" class="nav-link"><li class="nav-item">Linux Games</li></a>
-      </ul>
-      <ul class="ul-menu">
-        <a href="#" class="nav-link"><li class="nav-item">Help center</li></a>
-        <!-- <li><select name="" id="">Language
+          <a href="#" class="nav-link"><li class="nav-item">Coming Soon</li></a>
+          <a href="#" class="nav-link"><li class="nav-item">Linux Games</li></a>
+        </ul>
+        <ul class="ul-menu">
+          <a href="#" class="nav-link"><li class="nav-item">Help center</li></a>
+          <!-- <li><select name="" id="">Language
           <option value="english">English</option>
           <option value="macedonian">Macednian</option>
         </select></li> -->
-      </ul>
-    </div>
-  </nav>
+        </ul>
+      </div>
+    </nav>
 
-  <main id="main">
+    <main id="main">
+        <div class="container">
+            <div>
+                <h1>Games</h1>
+            </div>
+            <div class="row-column">
+                <div class="row catalog-list">
+                    <!-- Fetching all the games -->
 
-  </main>
+                </div>
+            </div>
+        </div>
+    </main>
 
-      <footer id="footer">
+    <footer id="footer">
       <div class="container">
         <div class="row">
           <div class="column">
@@ -182,14 +189,14 @@
                 <div class="form-group">
                   <div class="checkbox">
                     <!-- <label class="checkbox-label">
-                      <input type="checkbox" class="checkbox">
-                      <span class="checkmark">
-                        I agree to the
-                        <a href="#">Privacy Policy</a>
-                      </span>
-                    </label> -->
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkmark">
+                    I agree to the
+                    <a href="#">Privacy Policy</a>
+                    </span>
+                </label> -->
                     <label class="custom-checkbox">
-                      <input type="checkbox">
+                      <input type="checkbox" />
                       <span class="checkmark"></span>
                       I agree to
                       <a href="#" style="margin-left: 2px"> Privacy Policy</a>
@@ -213,5 +220,6 @@
       </div>
     </footer>
 
-</body>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
