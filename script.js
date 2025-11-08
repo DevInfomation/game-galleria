@@ -237,6 +237,8 @@ function init() {
       displayGameDetail();
       displayGameRanking();
       break;
+    case '/games.html':
+      break;
     default:
       console.log('Please enter a proper function');
   }
