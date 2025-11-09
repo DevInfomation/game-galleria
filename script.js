@@ -175,16 +175,19 @@ async function displayGameDetail() {
   const pcPlatform = gameDetails.platforms.find(plat => plat.platform.slug === 'pc');
 
   if (pcPlatform) {
-    for (const min of pcPlatform.requirements.minimum.split('\n')) {
-      minimumLi = min.split('\n').join('');
+    const itemListMin = pcPlatform.requirements.minimum.split('\n').slice(1, 10).map(list => `<li>${list}</li>`).join('');
+    const itemListRec = pcPlatform.requirements.recommended.split('\n',).slice(1, 10).map(list => `<li>${list}</li>`).join('');
+    
+    minimumRequirementsUl.innerHTML = itemListMin;
+    recommendedRequirementsUl.innerHTML = itemListRec;
+  } else {
+    minimumLi.textContent = 'No system requirements were found';
+    recommendedLi.textContent = 'No system requirements were found';
 
-      console.log(minimumLi);
-    }
-
-    const itemList = pcPlatform.requirements.minimum.split('\n').map(list => `<li>${list}</li>`).join('');
-
-    minimumRequirementsUl.innerHTML = itemList;
+    minimumRequirementsUl.append(minimumLi);
+    recommendedRequirementsUl.append(recommendedLi);
   }
+
 }
 
 async function displayGameRanking() {
