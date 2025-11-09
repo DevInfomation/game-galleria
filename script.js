@@ -172,21 +172,18 @@ async function displayGameDetail() {
   let minimumLi = document.createElement('li');
   let recommendedLi = document.createElement('li');
 
-  if (gameDetails.platforms[0].requirements.minimum.length > 0) {
-    minimumLi.textContent = gameDetails.platforms[0].requirements.minimum.split(',');
+  const pcPlatform = gameDetails.platforms.find(plat => plat.platform.slug === 'pc');
 
-    minimumRequirementsUl.append(minimumLi);
-  } else {
-    minimumLi.textContent = 'No requirements were found';
+  if (pcPlatform) {
+    for (const min of pcPlatform.requirements.minimum.split('\n')) {
+      minimumLi = min.split('\n').join('');
 
-  }
+      console.log(minimumLi);
+    }
 
-  if (gameDetails.platforms[0].requirements.recommended.length > 0) {
-    recommendedLi.textContent = gameDetails.platforms[0].requirements.recommended.split(',');
+    const itemList = pcPlatform.requirements.minimum.split('\n').map(list => `<li>${list}</li>`).join('');
 
-    recommendedRequirementsUl.append(recommendedLi);
-  } else {
-    recommendedLi.textContent = 'No requirements were found';
+    minimumRequirementsUl.innerHTML = itemList;
   }
 }
 
